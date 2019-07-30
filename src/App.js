@@ -23,8 +23,16 @@ export class App extends Component {
     ]
   };
 
-  markComplete = () => {
-    console.log('hello');
+  // toggle complete to todo
+  markComplete = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
   };
   render() {
     return (
