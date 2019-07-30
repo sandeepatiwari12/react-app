@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FaTrash } from 'react-icons/fa';
 
 export class TodoItem extends Component {
   getStyle = () => {
@@ -7,6 +8,7 @@ export class TodoItem extends Component {
       background: '#f4f4f4',
       padding: '10px',
       borderBottom: '1px #ccc dotted',
+      display: 'flow-root',
       textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     };
   };
@@ -20,6 +22,13 @@ export class TodoItem extends Component {
             onChange={this.props.markComplete.bind(this, id)}
           />{' '}
           {title}
+          <button
+            className="btn btn-danger float-right"
+            onClick={this.props.delTodo.bind(this, id)}
+          >
+            {' '}
+            <FaTrash />
+          </button>
         </p>
       </div>
     );
