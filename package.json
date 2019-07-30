@@ -19,7 +19,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-styleguidist": "^9.1.13",
-    "source-map-explorer": "^2.0.1"
+    "source-map-explorer": "^2.0.1",
+    "uuid": "^3.3.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
