@@ -3,24 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-plugin-relay": "^2.0.0-rc.2",
-    "bootstrap": "^4.3.1",
-    "flow-bin": "^0.104.0",
-    "graphql": "^14.4.2",
-    "graphql.macro": "^1.4.2",
-    "husky": "^3.0.1",
-    "lint-staged": "^9.2.1",
-    "node-sass": "^4.12.0",
-    "npm-upgrade": "^2.0.0",
-    "prettier": "^1.18.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-icons": "^3.7.0",
-    "react-router-dom": "^5.0.1",
+    "axios": "0.19.0",
+    "babel-plugin-relay": "2.0.0-rc.2",
+    "bootstrap": "4.3.1",
+    "flow-bin": "0.104.0",
+    "graphql": "14.4.2",
+    "graphql.macro": "1.4.2",
+    "husky": "3.0.1",
+    "lint-staged": "9.2.1",
+    "node-sass": "4.12.0",
+    "npm-upgrade": "2.0.0",
+    "prettier": "1.18.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-icons": "3.7.0",
+    "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
-    "react-styleguidist": "^9.1.13",
-    "source-map-explorer": "^2.0.1",
-    "uuid": "^3.3.2"
+    "react-styleguidist": "9.1.13",
+    "source-map-explorer": "2.0.1",
+    "uuid": "3.3.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -61,9 +62,9 @@
     }
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-links": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9"
+    "@storybook/addon-actions": "5.1.9",
+    "@storybook/addon-links": "5.1.9",
+    "@storybook/addons": "5.1.9",
+    "@storybook/react": "5.1.9"
   }
 }

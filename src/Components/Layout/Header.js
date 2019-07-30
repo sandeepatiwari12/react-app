@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaReact } from 'react-icons/fa';
 
 export default function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-sm bg-light navbar-light sticky-top">
         <Link className="navbar-brand" to="/">
-          <img
-            src="https://moneytor.in/resources/img/public/moneytor-icon.svg"
-            alt="Logo"
-          />
+          <FaReact />
         </Link>
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -27,7 +25,3 @@ export default function Header() {
     </header>
   );
 }
-const headerStyle = {
-  padding: '10px',
-  marginBottom: '10px'
-};
