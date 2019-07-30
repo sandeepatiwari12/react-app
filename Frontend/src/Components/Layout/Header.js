@@ -12,7 +12,17 @@ export default function Header() {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              Home
+              Todolist
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/user">
+              Create Users
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/exercises">
+              Exercises
             </Link>
           </li>
           <li className="nav-item">
