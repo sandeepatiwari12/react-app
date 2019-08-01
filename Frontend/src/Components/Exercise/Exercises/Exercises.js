@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { FaPlus } from "react-icons/fa";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 // Exercise
 const Exercise = props => (
@@ -11,10 +10,10 @@ const Exercise = props => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
-      <Link className="btn btn-link" to={"/edit/" + props.exercise._id}>
+      <Link className="btn btn-link" to={'/edit/' + props.exercise._id}>
         edit
-      </Link>{" "}
-      |{" "}
+      </Link>{' '}
+      |{' '}
       <button
         className="btn btn-link"
         onClick={() => {
@@ -37,7 +36,7 @@ export default class Exercises extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:5000/exercises/")
+      .get('http://localhost:5000/exercises/')
       .then(response => {
         this.setState({ exercises: response.data });
       })
@@ -47,8 +46,8 @@ export default class Exercises extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete("http://localhost:5000/exercises/" + id).then(response => {
-    //   console.log(response.data);
+    axios.delete('http://localhost:5000/exercises/' + id).then(response => {
+      //   console.log(response.data);
     });
 
     this.setState({
@@ -75,7 +74,7 @@ export default class Exercises extends Component {
           <h3 className="p-10">
             Logged Exercises
             <Link to="/create" className="float-right">
-              <FaPlus />
+              Add New
             </Link>
           </h3>
           <table className="table">
