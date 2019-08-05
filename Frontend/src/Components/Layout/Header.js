@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -14,16 +12,23 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import Button from '@material-ui/core/Button';
+
+import Sidebar from './Sidebar';
 
 // styling
 const drawerWidth = 250;
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -38,9 +43,6 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     })
-  },
-  menuButton: {
-    marginRight: 36
   },
   hide: {
     display: 'none'
@@ -79,37 +81,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const menuItems = [
-  {
-    id: 1,
-    name: 'Todo List',
-    icon: 'todo',
-    path: '/'
-  },
-  {
-    id: 2,
-    name: 'Create User',
-    icon: 'persion',
-    path: '/user'
-  },
-  {
-    id: 3,
-    name: 'Exercises',
-    icon: 'inbox',
-    path: '/exercises'
-  },
-  {
-    id: 4,
-    name: 'About',
-    icon: 'todo',
-    path: '/about'
-  }
-];
-
-export default function Header() {
+export default function Header(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -118,7 +93,10 @@ export default function Header() {
   function handleDrawerClose() {
     setOpen(false);
   }
-
+  function onLoginClick() {
+    console.log('just clicked on login');
+    // props.onLoginClick();
+  }
   return (
     <React.Fragment>
       <CssBaseline />
@@ -140,9 +118,12 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" noWrap>
+          <Typography variant="h5" noWrap className={classes.title}>
             Todo List
           </Typography>
+          <Button color="inherit" onClick={onLoginClick.bind(this)}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -173,29 +154,7 @@ export default function Header() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {menuItems.map((nav, index) => (
-            <Link to={nav.path} key={nav.id} className="menu-link">
-              <ListItem button key={nav.id}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={nav.name} />
-              </ListItem>
-            </Link>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <Sidebar />
       </Drawer>
     </React.Fragment>
   );

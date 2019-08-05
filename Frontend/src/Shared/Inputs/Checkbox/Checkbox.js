@@ -1,25 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 
-export class CheckBox extends Component {
-  onChange = event => {
+export default function Checkbox(props) {
+  const { checked } = props;
+  function onChange(event) {
     const { onChange } = this.props;
     if (onChange) onChange(event.target.checked);
-  };
-  render() {
-    const { checked } = this.props;
-
-    return (
-      <React.Fragment>
-        <Checkbox
-          checked={checked}
-          onChange={this.onChange(checked)}
-          value={checked}
-          color="primary"
-        />
-      </React.Fragment>
-    );
   }
+  return (
+    <React.Fragment>
+      <Checkbox
+        checked={checked}
+        onChange={onChange}
+        value={checked}
+        color="primary"
+      />
+    </React.Fragment>
+  );
 }
-
-export default Checkbox;
