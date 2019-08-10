@@ -4,22 +4,22 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // import axios for API call
 import axios from 'axios';
-// import Layout component here
-import Header from './Components/Layout/Header';
+// import layout component here
+import Header from './components/layout/Header';
 // import add todo component here
-import AddTodo from './Components/Todo/AddTodo/AddTodo';
+import AddTodo from './components/todo/add-todo/AddTodo';
 // import the components here
-import Todos from './Components/Todo/Todos/Todos';
+import Todos from './components/todo/todos/Todos';
 // import UUID to generate the random id
 // import uuid from "uuid";
 // import about App component
-import About from './Components/Pages/About/About';
+import About from './components/pages/about/About';
 // To Show all Exercises
-import Exercises from './Components/Exercise/Exercises/Exercises';
+import Exercises from './components/exercise/exercises/Exercises';
 // to edit the exercise
-import EditExercise from './Components/Exercise/Edit-Exercise/EditExercise';
-import CreateExercise from './Components/Exercise/Create-Exercise/CreateExercise';
-import CreateUser from './Components/User/Create-User/CreateUser';
+import EditExercise from './components/exercise/edit-exercise/EditExercise';
+import CreateExercise from './components/exercise/create-exercise/CreateExercise';
+import CreateUser from './components/user/create-user/CreateUser';
 
 export class App extends Component {
   state = {

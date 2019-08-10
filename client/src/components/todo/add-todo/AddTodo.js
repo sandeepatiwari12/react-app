@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PrimaryButton from '../../../Shared/Buttons/PrimaryButton/PrimaryButton';
-import InputField from '../../../Shared/Inputs/Input/InputField';
+import PrimaryButton from '../../../shared/buttons/primary-button/PrimaryButton';
+import InputField from '../../../shared/inputs/input/InputField';
 export class AddTodo extends Component {
   state = {
     title: ''
