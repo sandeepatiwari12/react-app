@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import SimpleTableBody from "../../../shared/tables/default-table/SimpleTableBody";
 
 // Exercise
 const Exercise = props => (
@@ -10,10 +11,10 @@ const Exercise = props => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
-      <Link className="btn btn-link" to={'/edit/' + props.exercise._id}>
+      <Link className="btn btn-link" to={"/edit/" + props.exercise._id}>
         edit
-      </Link>{' '}
-      |{' '}
+      </Link>{" "}
+      |{" "}
       <button
         className="btn btn-link"
         onClick={() => {
@@ -36,9 +37,14 @@ export default class Exercises extends Component {
   }
   componentDidMount() {
     axios
-      .get('http://localhost:5000/exercises/')
+      .get("http://localhost:4000/exercises/")
       .then(response => {
-        this.setState({ exercises: response.data });
+        if (response && response.data && response.data.exercises) {
+          if (response.data.exercises.length > 0) {
+            console.log('this is final body', response.data.exercises)
+            this.setState({ exercises: response.data.exercises });
+          }
+        }
       })
       .catch(error => {
         console.log(error);
@@ -46,7 +52,7 @@ export default class Exercises extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/' + id).then(response => {
+    axios.delete("http://localhost:4000/exercises/" + id).then(response => {
       //   console.log(response.data);
     });
 
@@ -77,18 +83,7 @@ export default class Exercises extends Component {
               Add New
             </Link>
           </h3>
-          <table className="table">
-            <thead className="thead-light">
-              <tr>
-                <th>Username</th>
-                <th>Description</th>
-                <th>Duration</th>
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>{this.exerciseList()}</tbody>
-          </table>
+          <SimpleTableBody  data= {this.state.exercises} />
         </div>
       </React.Fragment>
     );

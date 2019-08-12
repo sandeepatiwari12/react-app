@@ -3,9 +3,21 @@ const router = require('express').Router();
 let Exercise = require('../models/exercise.model');
 
 router.route('/').get((req, res) => {
-  Exercise.find()
-    .then(exercises => res.json(exercises))
-    .catch(err => res.status(400).json('Error: ' + err));
+  Exercise.find({}, (err, exercises) => {
+    if (err) {
+        res.json( { success: false, message: err});
+    } else {
+        if (!exercises) {
+            res.json({ success: false, message: 'No Exercises List Data Found'});
+        } else {
+            console.log('Contact List Data', exercises);
+            res.json({ success: true, exercises: exercises});
+        }
+    }
+}).sort({ '_id': -1});
+  // Exercise.find()
+  //   .then(exercises => res.json(exercises))
+  //   .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
