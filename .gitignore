@@ -1,18 +1,11 @@
 # for client gitignore files
-client/node_modules
-client/node_modules
-client/build
-client/package-lock.json
-client/**/.env
+**/node_modules
+**/build
+**/package-lock.json
+**/.env
+**/.pnp
+**/.pnp.js
 
-
-# for server gitignore files
-server/node_modules
-server/node_modules
-server/package-lock.json
-server/**/.env
-server/.pnp
-server/.pnp.js
 
 
 # misc
