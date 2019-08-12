@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export default styled.button`
-  background-color: ${props => (props.primary ? "#4caf50" : "#008CBA")};
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+   /* Adapt the colors based on primary prop */
+  background: ${props => (props.primary ? "#3f51b5" : "#ffffff")};
+  color: ${props => (props.primary ? "#ffffff" : "#3f51b5")};
+  border: 2px solid #3f51b5;
+  font-size: 1em;
+  margin: 1em;
+  padding: .5em 3em;
+  border-radius: 3px;
   font-size: 16px;
+  font-weight: 600;
 `;
 
 // // The Button from the last section without the interpolations
