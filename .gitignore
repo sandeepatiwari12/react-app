@@ -1,18 +1,11 @@
-# for frontend gitignore files
-Frontend/node_modules
-Frontend/node_modules
-Frontend/build
-Frontend/package-lock.json
-Frontend/**/.env
+# for client gitignore files
+**/node_modules
+**/build
+**/package-lock.json
+**/.env
+**/.pnp
+**/.pnp.js
 
-
-# for backend gitignore files
-Backend/node_modules
-Backend/node_modules
-Backend/package-lock.json
-Backend/**/.env
-Backend/.pnp
-Backend/.pnp.js
 
 
 # misc
