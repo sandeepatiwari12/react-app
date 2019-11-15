@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FaTrash } from 'react-icons/fa';
+// for Icon Button
+import IconButton from '@material-ui/core/IconButton';
+// for icons
+import DeleteIcon from '@material-ui/icons/Delete';
+
+import Checkbox from '@material-ui/core/Checkbox';
 
 export class TodoItem extends Component {
   getStyle = () => {
@@ -12,23 +17,28 @@ export class TodoItem extends Component {
       textDecoration: this.props.todo.completed ? 'line-through' : 'none'
     };
   };
+
   render() {
     const { id, title } = this.props.todo;
+
     return (
       <div style={this.getStyle()}>
         <p>
-          <input
-            type="checkbox"
+          <Checkbox
+            checked={this.props.todo.completed}
             onChange={this.props.markComplete.bind(this, id)}
-          />{' '}
+            value={this.props.todo.completed}
+            color="primary"
+          />
           {title}
-          <button
-            className="btn btn-danger float-right"
+          <IconButton
+            variant="extended"
+            color="secondary"
+            className="float-right"
             onClick={this.props.delTodo.bind(this, id)}
           >
-            {' '}
-            <FaTrash />
-          </button>
+            <DeleteIcon />
+          </IconButton>
         </p>
       </div>
     );
